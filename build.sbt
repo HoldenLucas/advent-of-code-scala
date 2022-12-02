@@ -1,6 +1,6 @@
 name := "Advent of Code"
 
-scalaVersion := "3.2.1"
+scalaVersion := "3.1.0"
 
 scalacOptions ++= Seq(
   "-deprecation",

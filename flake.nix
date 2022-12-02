@@ -12,8 +12,12 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            dotty
+            ammonite
+            bloop
+            coursier
+            metals
             sbt
+            scalafmt
           ];
         };
       }
