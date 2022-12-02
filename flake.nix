@@ -7,11 +7,13 @@
   outputs = inp:
     inp.flake-utils.lib.eachDefaultSystem (system:
       let
+        pkgs = import inp.nixpkgs { inherit system; };
       in
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             dotty
+            sbt
           ];
         };
       }
