@@ -1,12 +1,18 @@
 package AdventOfCode2022
 
+import scala.util.chaining._
+
 object Day01:
   def parse(input: String): Seq[Int] =
-    input.split("\n\n").map(_.split("\n").map(_.toInt).sum).toSeq
+    input
+      .split("\n\n")
+      .map(_.split("\n").map(_.toInt).sum)
+      .toSeq
 
   def part1(input: String): Int = parse(input).max
 
-  def part2(input: String): Int = parse(input).sorted.takeRight(3).sum
+  def part2(input: String): Int =
+    parse(input).sorted.takeRight(3).sum
 
   def main(args: Array[String]): Unit =
     val data = io.Source.fromResource("AdventOfCode2022/Day01.txt").mkString
