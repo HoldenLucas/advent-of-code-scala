@@ -29,12 +29,9 @@ object Day03:
   def part2(input: String): Int =
     parse(input)
       .grouped(3)
-      .toSeq
-      .map(foo => foo.map(_.toSet))
-      // TODO: what is the elegant way to do this? reduce?
-      .map(foo => {
-        foo(0).intersect(foo(1)).intersect(foo(2))
-      })
+      .map(_.map(_.toSet))
+      .map(_.reduce((a, b) => a.intersect(b)))
+      // TODO: how do i get rid of this line?
       .map(_.map(valueMap).head)
       .sum
 
